@@ -191,7 +191,7 @@ bool Player::Equip(const vector<string>& args)
 
 	if(item == NULL)
 	{
-		cout << "\nCannot find '" << args[1] << "' is not in your inventory.\n";
+		cout << "\nCannot find '" << args[1] << "' in your inventory.\n";
 		return false;
 	}
 
@@ -268,7 +268,7 @@ bool Player::Attack(const vector<string>& args)
 
 	if(target == NULL)
 	{
-		cout << "\n" << args[1] << " is not here.";
+		cout << "\n" << args[1] << " is not here.\n";
 		return false;
 	}
 

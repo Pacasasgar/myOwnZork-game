@@ -350,6 +350,7 @@ void Creature::Die()
 {
 	if(PlayerInRoom())
 		cout << name << " dies.\n";
+	cout << "\n>";
 }
 
 // ----------------------------------------------------
