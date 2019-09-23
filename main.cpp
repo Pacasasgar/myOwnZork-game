@@ -20,7 +20,7 @@ int main()
 	vector<string> args;
 	args.reserve(10);
 
-	cout << WHITE_ "Welcome to MyZork!\n" _WHITE;
+	cout << WHITE_ "Welcome to MyOwnZork!\n" _WHITE;
 	cout << "----------------\n";
 
 	World my_world;
@@ -52,7 +52,7 @@ int main()
 				Tokenize(player_input, args);
 		}
 
-		if(args.size() > 0 && Same(args[0], "quit"))
+		if(args.size() > 0 && (Same(args[0], "quit") || Same(args[0], "q")))
 			break;
 
 		if(my_world.Tick(args) == false)
