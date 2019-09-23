@@ -197,6 +197,7 @@ bool World::ParseCommand(vector<string>& args)
 		}
 		case 3: // commands with two arguments ------------------------------
 		{
+			ret = false;
 			break;
 		}
 		case 4: // commands with three arguments ------------------------------

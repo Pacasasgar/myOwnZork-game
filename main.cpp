@@ -66,6 +66,7 @@ int main()
 		}
 	}
 
-	cout << "\nThanks for playing, Bye!\n";
+	cout << "\n\n---------------------\n";
+	cout << WHITE_ "Thanks for playing, see you soon!\n" _WHITE;
 	return 0;
 }
