@@ -22,6 +22,22 @@ void Player::Look(const vector<string>& args) const
 {
 	if(args.size() > 1)
 	{
+		//check inventory first
+		list<Entity*> items;
+		FindAll(ITEM, items);
+
+		if (items.size() > 0)
+		{
+			for (list<Entity*>::const_iterator it = items.begin(); it != items.cend(); ++it)
+			{
+				if (Same((*it)->name, args[1])) {
+					(*it)->Look();
+					return;
+				}
+			}
+		}
+
+		//check rest of entities
 		for(list<Entity*>::const_iterator it = parent->container.begin(); it != parent->container.cend(); ++it)
 		{
 			if(Same((*it)->name, args[1]) || ((*it)->type == EXIT && Same(args[1], ((Exit*)(*it))->GetNameFrom((Room*)parent))))
@@ -282,7 +298,7 @@ bool Player::Attack(const vector<string>& args)
 	}
 
 	combat_target = target;
-	cout << "\nYou jump to attack " << target->name << "!\n";
+	cout << "\nYou attack the " << target->name << "!\n";
 	return true;
 }
 

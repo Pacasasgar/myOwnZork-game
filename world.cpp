@@ -14,10 +14,6 @@ World::World()
 	tick_timer = clock();
 
 	// Rooms ----
-	Room* forest = new Room("Forest", "You are surrounded by tall trees. It feels like a huge forest someone could get lost easily.");
-	Room* house = new Room("House", "You are inside a beautiful but small white house.");
-	Room* basement = new Room("Basement", "The basement features old furniture and dim light.");
-	
 	Room* road = new Room("Old Road", "This is the Old Road");
 	Room* graveyard = new Room("Graveyard", "This is the Graveyard");
 	Room* blackForest = new Room("Black Forest", "This is the Black Forest");
@@ -26,20 +22,10 @@ World::World()
 	Room* vault = new Room("Vault", "This is the Vault");
 
 	//Exits
-	/*Exit* ex1 = new Exit("west", "east", "Little path", house, forest);
-	Exit* ex2 = new Exit("down", "up", "Stairs", house, basement);
-	ex2->locked = true;*/
-
-	/*entities.push_back(forest);
-	entities.push_back(house);
-	entities.push_back(basement);
-
-	entities.push_back(ex1);
-	entities.push_back(ex2);*/
-
 	Exit* exit1 = new Exit("south", "north", "Graveyard Path", graveyard, road);
 	Exit* exit2 = new Exit("west", "east", "Forest Path", blackForest, graveyard);
 	Exit* exit3 = new Exit("south", "north", "Manor Path", manor, graveyard);
+	exit3->locked = true;
 	Exit* exit4 = new Exit("east", "west", "Crypt Path", crypt, graveyard);
 	Exit* exit5 = new Exit("up", "down", "Trapdoor", vault, crypt);
 	exit5->locked = true;
@@ -58,47 +44,64 @@ World::World()
 	entities.push_back(exit5);
 
 	// Creatures ----
-	Creature* butler = new Creature("Butler", "It's James, the house Butler.", house);
-	butler->hit_points = 10;
-
-	Creature* zombie = new Creature("Zombie", "It's a pestilent zombie", graveyard);
-	zombie->hit_points = 10;
+	Creature* zombie = new Creature("Zombie", "It's a pestilent zombie.", graveyard);
+	zombie->hit_points = 6;
+	zombie->min_damage = 1;
+	zombie->max_damage = 2;
+	zombie->max_protection = 1;
 	Creature* wolf = new Creature("Wolf", "It's a fierce wolf", blackForest);
 	wolf->hit_points = 10;
+	wolf->min_damage = 2;
+	wolf->max_damage = 3;
+	wolf->min_protection = 1;
+	wolf->max_protection = 2;
 	Creature* skeleton = new Creature("Skeleton", "It's an old live skeleton!", manor);
-	skeleton->hit_points = 10;
-	Creature* necromancer = new Creature("Necromancer", "It's an evil human being", vault);
-	necromancer->hit_points = 10;
+	skeleton->hit_points = 20;
+	skeleton->min_damage = 1;
+	skeleton->max_damage = 5;
+	Creature* necromancer = new Creature("Necromancer", "It's an evil human being.", vault);
+	necromancer->hit_points = 45;
+	necromancer->min_damage = 45;
+	necromancer->max_damage = 50;
+	necromancer->min_protection = 1;
+	necromancer->max_protection = 2;
 
-	//entities.push_back(butler);
 	entities.push_back(zombie);
 	entities.push_back(wolf);
 	entities.push_back(skeleton);
 	entities.push_back(necromancer);
 
 	// Items -----
-	Item* mailbox = new Item("Mailbox", "Looks like it might contain something.", house);
-	Item* key = new Item("Key", "Old iron key.", mailbox);
-	//ex2->key = key;
+	Item* shortSword = new Item("Shortsword", "An old short sword, it looks a little weak to defeat evil humans...", road, WEAPON);
+	shortSword->min_value = 1;
+	shortSword->max_value = 3;
+	Item* broadSword = new Item("Broadsword", "A big broadsword! It looks heavy but painful...", manor, WEAPON);
+	broadSword->min_value = 4;
+	broadSword->max_value = 6;
+	Item* shield = new Item("Shield", "A broken wooden shield. Soon it will be two halves of it...", skeleton, ARMOUR);
+	shield->min_value = 0;
+	shield->max_value = 2;
+	skeleton->AutoEquip();
+	Item* leatherArmour = new Item("Armour", "A leather armour. Your skill as a leatherworker pays off, you created this using just a wolf's leather...", wolf, ARMOUR);
+	leatherArmour->min_value = 1;
+	leatherArmour->max_value = 4;
+	Item* locket = new Item("Locket", "This ornament seems bigger than other lockets. It looks like it could be opened...", crypt);
+	Item* note = new Item("Note", "It says:\n'Remember that the Manor's key is inside the locket. Regards, Vladimir'", zombie);
+	Item* key1 = new Item("Vault-Key", "Vault's key. This key seems to be existing for more than a thousand years...", skeleton);
+	exit5->key = key1;
+	Item* key2 = new Item("Manor-Key", "Manor's key. Surprisingly, this key is very small and square.", locket);
+	exit3->key = key2;
 
-	Item* sword = new Item("Sword", "A simple old and rusty sword.", forest, WEAPON);
-	sword->min_value = 2;
-	sword->max_value = 6;
-
-	Item* sword2(sword);
-	sword2->parent = butler;
-
-	Item* shield = new Item("Shield", "An old wooden shield.", butler, ARMOUR);
-	shield->min_value = 1;
-	shield->max_value = 3;
-	butler->AutoEquip();
-
-	entities.push_back(mailbox);
-	entities.push_back(sword);
+	entities.push_back(shortSword);
+	entities.push_back(broadSword);
 	entities.push_back(shield);
+	entities.push_back(leatherArmour);
+	entities.push_back(locket);
+	entities.push_back(note);
+	entities.push_back(key1);
+	entities.push_back(key2);
 
 	// Player ----
-	//player = new Player("Hero", "You are an awesome adventurer!", forest);
 	player = new Player("Bounty Hunter", "You are an awesome adventurer!", road);
 	player->hit_points = 25;
 	entities.push_back(player);
