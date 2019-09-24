@@ -33,14 +33,17 @@ void Player::Look(const vector<string>& args) const
 
 		if(Same(args[1], "me"))
 		{
-			cout << "\n" << name << "\n";
+			cout << "\n\n" << name << "\n";
 			cout << description << "\n";
+			return;
 		}
 	}
 	else
 	{
 		parent->Look();
+		return;
 	}
+	cout << "\nSorry, you cannot look '" << args[1] << "' because I do not understand it or it is not here\n";
 }
 
 // ----------------------------------------------------
@@ -60,7 +63,8 @@ bool Player::Go(const vector<string>& args)
 		return false;
 	}
 
-	cout << "\nYou take direction " << exit->GetNameFrom((Room*) parent) << "...\n";
+	cout << "\n\nYou take direction " << exit->GetNameFrom((Room*) parent) << "...";
+	cout << "\nYou arrive at:";
 	ChangeParentTo(exit->GetDestinationFrom((Room*) parent));
 	parent->Look();
 
@@ -251,7 +255,12 @@ bool Player::Examine(const vector<string>& args) const
 
 	if(target == NULL)
 	{
-		cout << "\n" << args[1] << " is not here.\n";
+		if (Same(args[1], "skeleton") || Same(args[1], "wolf") || Same(args[1], "zombie") || Same(args[1], "necromancer")) {
+			cout << "\n" << args[1] << " is not here.\n";
+		}
+		else {
+			cout << "\nSorry, I do not understand '" << args[1] << "'. Try to 'examine' a creature\n";
+		}
 		return false;
 	}
 

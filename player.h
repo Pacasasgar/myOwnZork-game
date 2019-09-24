@@ -23,9 +23,6 @@ public:
 	bool Loot(const vector<string>& args);
 	bool Lock(const vector<string>& args);
 	bool UnLock(const vector<string>& args);
-
-public :
-
 };
 
 #endif //__Player__

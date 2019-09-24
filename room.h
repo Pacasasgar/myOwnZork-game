@@ -17,10 +17,7 @@ public:
 	~Room();
 
 	void Look() const;
-
 	Exit* GetExit(const string& direction) const;
-
-public :
 };
 
 #endif //__Room__

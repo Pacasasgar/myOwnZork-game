@@ -21,7 +21,7 @@ int main()
 	args.reserve(10);
 
 	cout << WHITE_ "Welcome to MyOwnZork!\n" _WHITE;
-	cout << "---------------------\n";
+	cout << "---------------------";
 
 	World my_world;
 

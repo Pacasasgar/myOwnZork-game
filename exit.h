@@ -15,11 +15,10 @@ public:
 	~Exit();
 
 	void Look() const;
-
 	const string& GetNameFrom(const Room* room) const;
 	Room* GetDestinationFrom(const Room* room) const;
 
-public :
+public:
 	bool one_way;
 	bool closed;
 	bool locked;

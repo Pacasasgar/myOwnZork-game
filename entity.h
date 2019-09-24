@@ -35,7 +35,6 @@ public :
 	EntityType type;
 	std::string name;
 	std::string description;
-
 	Entity* parent;
 	list<Entity*> container;
 };

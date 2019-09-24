@@ -25,12 +25,12 @@ void Creature::Look(const vector<string>& args) const
 {
 	if(IsAlive())
 	{
-		cout << endl << endl << name << "\n";
+		cout << "\n\n" << name << "\n";
 		cout << description << "\n";
 	}
 	else
 	{
-		cout << endl << endl << name << "'s corpse\n";
+		cout << "\n\n" << name << "'s corpse\n";
 		cout << "Here lies dead: " << description << "\n";
 	}
 }
@@ -101,7 +101,7 @@ void Creature::Inventory() const
 
 	if(items.size() == 0)
 	{
-		cout << name << " does not own any items\n";
+		cout << "\n\n" << name << " does not own any item";
 		return;
 	}
 
