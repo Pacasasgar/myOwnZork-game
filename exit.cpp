@@ -34,7 +34,7 @@ const string& Exit::GetNameFrom(const Room* room) const
 	if(room == destination)
 		return opposite_name;
 
-	return name; // error ?
+	return name;
 }
 
 // ----------------------------------------------------

@@ -17,17 +17,45 @@ World::World()
 	Room* forest = new Room("Forest", "You are surrounded by tall trees. It feels like a huge forest someone could get lost easily.");
 	Room* house = new Room("House", "You are inside a beautiful but small white house.");
 	Room* basement = new Room("Basement", "The basement features old furniture and dim light.");
+	
+	Room* road = new Room("Old Road", "This is the Old Road");
+	Room* graveyard = new Room("Graveyard", "This is the Graveyard");
+	Room* blackForest = new Room("Black Forest", "This is the Black Forest");
+	Room* manor = new Room("Haunted Manor", "This is the Haunted Manor");
+	Room* crypt = new Room("Crypt", "This is the Crypt");
+	Room* vault = new Room("Vault", "This is the Vault");
 
-	Exit* ex1 = new Exit("west", "east", "Little path", house, forest);
+	//Exits
+	/*Exit* ex1 = new Exit("west", "east", "Little path", house, forest);
 	Exit* ex2 = new Exit("down", "up", "Stairs", house, basement);
-	ex2->locked = true;
+	ex2->locked = true;*/
 
-	entities.push_back(forest);
+	/*entities.push_back(forest);
 	entities.push_back(house);
 	entities.push_back(basement);
 
 	entities.push_back(ex1);
-	entities.push_back(ex2);
+	entities.push_back(ex2);*/
+
+	Exit* exit1 = new Exit("south", "north", "graveyard path", graveyard, road);
+	Exit* exit2 = new Exit("west", "east", "forest path", blackForest, graveyard);
+	Exit* exit3 = new Exit("south", "north", "manor path", manor, graveyard);
+	Exit* exit4 = new Exit("east", "west", "crypt path", crypt, graveyard);
+	Exit* exit5 = new Exit("up", "down", "trapdoor", vault, crypt);
+	exit5->locked = true;
+
+	entities.push_back(road);
+	entities.push_back(graveyard);
+	entities.push_back(blackForest);
+	entities.push_back(manor);
+	entities.push_back(crypt);
+	entities.push_back(vault);
+
+	entities.push_back(exit1);
+	entities.push_back(exit2);
+	entities.push_back(exit3);
+	entities.push_back(exit4);
+	entities.push_back(exit5);
 
 	// Creatures ----
 	Creature* butler = new Creature("Butler", "It's James, the house Butler.", house);
@@ -38,7 +66,7 @@ World::World()
 	// Items -----
 	Item* mailbox = new Item("Mailbox", "Looks like it might contain something.", house);
 	Item* key = new Item("Key", "Old iron key.", mailbox);
-	ex2->key = key;
+	//ex2->key = key;
 
 	Item* sword = new Item("Sword", "A simple old and rusty sword.", forest, WEAPON);
 	sword->min_value = 2;
@@ -57,7 +85,8 @@ World::World()
 	entities.push_back(shield);
 
 	// Player ----
-	player = new Player("Hero", "You are an awesome adventurer!", forest);
+	//player = new Player("Hero", "You are an awesome adventurer!", forest);
+	player = new Player("Bounty Hunter", "You are an awesome adventurer!", road);
 	player->hit_points = 25;
 	entities.push_back(player);
 }
