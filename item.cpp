@@ -24,7 +24,6 @@ void Item::Look() const
 
 	list<Entity*> stuff;
 	FindAll(ITEM, stuff);
-
 	if(stuff.size() > 0)
 	{
 		cout << "It contains: " << "\n";

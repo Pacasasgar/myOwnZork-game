@@ -26,7 +26,6 @@ int Roll(int min, int max)
 void Tokenize(const string& line, vector<string>& arguments)
 {
 	const char* str = line.c_str();
-
 	do
 	{
 		const char *begin = str;

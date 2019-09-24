@@ -29,5 +29,4 @@ public :
 	int max_value;
 	ItemType item_type;
 };
-
 #endif //__Item__
