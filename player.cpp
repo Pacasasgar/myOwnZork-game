@@ -186,18 +186,21 @@ bool Player::Drop(const vector<string>& args)
 			return false;
 		}
 
-		Item* container = (Item*)parent->Find(args[3], ITEM);
-
+		//first check inventory
+		Item* container = (Item*)Find(args[3], ITEM);
+		if (container == NULL) 
+		{
+			//then check room
+			container = (Item*)parent->Find(args[3], ITEM);
+		}
 		if(container == NULL)
 		{
-			container = (Item*)Find(args[3], ITEM);
 			cout << "\nCan not find '" << args[3] << "' in your inventory or in the room.\n";
 			return false;
 		}
 
 		cout << "\nYou put " << item->name << " into " << container->name << ".\n";
 		item->ChangeParentTo(container);
-
 		return true;
 	}
 	
