@@ -37,11 +37,11 @@ World::World()
 	entities.push_back(ex1);
 	entities.push_back(ex2);*/
 
-	Exit* exit1 = new Exit("south", "north", "graveyard path", graveyard, road);
-	Exit* exit2 = new Exit("west", "east", "forest path", blackForest, graveyard);
-	Exit* exit3 = new Exit("south", "north", "manor path", manor, graveyard);
-	Exit* exit4 = new Exit("east", "west", "crypt path", crypt, graveyard);
-	Exit* exit5 = new Exit("up", "down", "trapdoor", vault, crypt);
+	Exit* exit1 = new Exit("south", "north", "Graveyard Path", graveyard, road);
+	Exit* exit2 = new Exit("west", "east", "Forest Path", blackForest, graveyard);
+	Exit* exit3 = new Exit("south", "north", "Manor Path", manor, graveyard);
+	Exit* exit4 = new Exit("east", "west", "Crypt Path", crypt, graveyard);
+	Exit* exit5 = new Exit("up", "down", "Trapdoor", vault, crypt);
 	exit5->locked = true;
 
 	entities.push_back(road);
@@ -61,7 +61,20 @@ World::World()
 	Creature* butler = new Creature("Butler", "It's James, the house Butler.", house);
 	butler->hit_points = 10;
 
-	entities.push_back(butler);
+	Creature* zombie = new Creature("Zombie", "It's a pestilent zombie", graveyard);
+	zombie->hit_points = 10;
+	Creature* wolf = new Creature("Wolf", "It's a fierce wolf", blackForest);
+	wolf->hit_points = 10;
+	Creature* skeleton = new Creature("Skeleton", "It's an old live skeleton!", manor);
+	skeleton->hit_points = 10;
+	Creature* necromancer = new Creature("Necromancer", "It's an evil human being", vault);
+	necromancer->hit_points = 10;
+
+	//entities.push_back(butler);
+	entities.push_back(zombie);
+	entities.push_back(wolf);
+	entities.push_back(skeleton);
+	entities.push_back(necromancer);
 
 	// Items -----
 	Item* mailbox = new Item("Mailbox", "Looks like it might contain something.", house);

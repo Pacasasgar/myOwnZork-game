@@ -15,6 +15,7 @@ public:
 	Creature(const char* name, const char* description, Room* room);
 	~Creature();
 
+	//functions that can be polimorphed
 	virtual bool Go(const vector<string>& args);
 	virtual void Look(const vector<string>& args) const;
 	virtual bool Take(const vector<string>& args);
@@ -39,7 +40,6 @@ public:
 	bool IsAlive() const;
 
 public :
-
 	int hit_points;
 	int min_damage;
 	int max_damage;

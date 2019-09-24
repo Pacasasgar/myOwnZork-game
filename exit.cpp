@@ -22,8 +22,9 @@ Exit::~Exit()
 // ----------------------------------------------------
 void Exit::Look() const
 {
-	cout << name << " to " << opposite_name << "\n";
-	cout << description << "\n";
+	cout << endl << endl << description << "\n";
+	cout << name << " to " << opposite_name << "and vice versa\n";
+	cout << "This way connects " << parent->name << " with " << destination->name << endl;
 }
 
 // ----------------------------------------------------

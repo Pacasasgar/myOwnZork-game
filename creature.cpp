@@ -25,12 +25,12 @@ void Creature::Look(const vector<string>& args) const
 {
 	if(IsAlive())
 	{
-		cout << name << "\n";
+		cout << endl << endl << name << "\n";
 		cout << description << "\n";
 	}
 	else
 	{
-		cout << name << "'s corpse\n";
+		cout << endl << endl << name << "'s corpse\n";
 		cout << "Here lies dead: " << description << "\n";
 	}
 }
