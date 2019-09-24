@@ -15,7 +15,6 @@ class Player;
 class World
 {
 public :
-
 	World();
 	~World();
 
@@ -24,10 +23,8 @@ public :
 	void GameLoop();
 
 private:
-
 	clock_t tick_timer;
 	list<Entity*> entities;
 	Player* player;
 };
-
 #endif //__World__
