@@ -231,4 +231,5 @@ $RECYCLE.BIN/
 *.lnk
 /.vs/zork/v16/Browse.VC.opendb
 
-.vs/zork/v16/Browse.VC.db	
+.vs/zork/v16/Browse.VC.db
+.vs*
