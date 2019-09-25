@@ -21,7 +21,9 @@ int main()
 	args.reserve(10);
 
 	cout << WHITE_ "Welcome to MyOwnZork!\n" _WHITE;
-	cout << "---------------------";
+	cout << "In this text mode conversational adventure you will incarnate a bounty hunter in his battles in a medieval fantasy world. You could find a guide on how to play and how to beat the game in the 'README' file of the repository at 'https://github.com/Pacasasgar/myOwnZork-game'. Have fun!\n";
+	cout << "---------------------\n";
+	cout << "\nAn evil Necromancer ravages these lands. There are rumors among the villagers... Undeads walking around Vladimir's Manor. Some ensure the Manor is haunted, others that Vladimir's corpse is alive again and walking around without flesh... This evil Necromancer is practicing dark arts and has to be stopped. It is your job as a renowned Bounty Hunter to claim your trophy by hunting him down. You need to be the villager's hero that they deserve... As you approach your destination, you feel a terrible magic in the air... You are close.";
 
 	World my_world;
 

@@ -14,12 +14,12 @@ World::World()
 	tick_timer = clock();
 
 	// Rooms ----
-	Room* road = new Room("Old Road", "This is the Old Road");
-	Room* graveyard = new Room("Graveyard", "This is the Graveyard");
-	Room* blackForest = new Room("Black Forest", "This is the Black Forest");
-	Room* manor = new Room("Haunted Manor", "This is the Haunted Manor");
-	Room* crypt = new Room("Crypt", "This is the Crypt");
-	Room* vault = new Room("Vault", "This is the Vault");
+	Room* road = new Room("Old Road", "You arrived here walking down this road. You saw nobody in your way here. The only sound is the sound of a lone wolf's howl into the hopeless night. A Sign indicates that you are near a Graveyard.");
+	Room* graveyard = new Room("Graveyard", "This cemetery is next to the Vladimir's Manor. You can only see crows and decay all over the place. This is not the ideal neighborhood for a manor...");
+	Room* blackForest = new Room("Black Forest", "As you go deeper into the forest, the terrible magic sensation is weaker. It does not make any sense to keep walking farther into the darkness. Wild animals live here and the noise coming from the wind blowing between branches is very frightening.");
+	Room* manor = new Room("Haunted Manor", "This is the famous Haunted Manor. As you enter, you hear noises everywhere. You notice an armory in one of the rooms. However, you feel observed. You are not welcome here.");
+	Room* crypt = new Room("Crypt", "More tombstones decorate this ruined place. There are also urns and statues for a change. You see nobody here, but the evilness sensation is greater than ever. You are getting close to your target...");
+	Room* vault = new Room("Vault", "This secret vault is suprisingly wide. As you descent into the vault, you hear a human laugh. Magic is inundate this place. The laughing is even harder every time. You have found him...");
 
 	//Exits
 	Exit* exit1 = new Exit("south", "north", "Graveyard Path", graveyard, road);
@@ -44,21 +44,21 @@ World::World()
 	entities.push_back(exit5);
 
 	// Creatures ----
-	Creature* zombie = new Creature("Zombie", "It's a pestilent zombie and a disease's paradise...", graveyard);
+	Creature* zombie = new Creature("Zombie", "It's a pestilent zombie and a disease's paradise. It wears ripped clothes. It appears to be a servant's uniform. An old Vladimir's servant, perhaps?", graveyard);
 	zombie->hit_points = 6;
 	zombie->min_damage = 1;
 	zombie->max_damage = 2;
 	zombie->max_protection = 1;
-	Creature* wolf = new Creature("Wolf", "It's a fierce wolf", blackForest);
+	Creature* wolf = new Creature("Wolf", "It's a fierce wolf. It appears to be unfriendly and hungry, be careful or you will be its dinner...", blackForest);
 	wolf->hit_points = 10;
 	wolf->min_damage = 2;
 	wolf->max_damage = 3;
 	wolf->max_protection = 2;
-	Creature* skeleton = new Creature("Skeleton", "It's an old live skeleton!", manor);
+	Creature* skeleton = new Creature("Skeleton", "It's an old live skeleton! It wears a giant ring in its bone finger. It must be Vladimir. This is caused by the Necromancer's magic.", manor);
 	skeleton->hit_points = 20;
 	skeleton->min_damage = 1;
 	skeleton->max_damage = 5;
-	Creature* necromancer = new Creature("Necromancer", "It's an evil human being.", vault);
+	Creature* necromancer = new Creature("Necromancer", "It's an evil human being. The source of all your problems in this adventure.", vault);
 	necromancer->hit_points = 50;
 	necromancer->min_damage = 1;
 	necromancer->max_damage = 6;
@@ -101,7 +101,7 @@ World::World()
 	entities.push_back(key2);
 
 	// Player ----
-	player = new Player("Bounty Hunter", "Your targets are always enemies of the kingdom, which makes you their Hero!", road);
+	player = new Player("Bounty Hunter", "Your targets are always enemies of the village, which makes you a true Hero!", road);
 	player->hit_points = 28;
 	entities.push_back(player);
 }
