@@ -29,6 +29,8 @@ In this game, the player is always standing in a 'Room'. You are the player so t
 
 -'look' or 'l' --> You can look pretty much every entity in the game (Rooms, Exits, Creatures, Items and Yourself). Using 'look' alone will trigger the actual's room (name + description). Using 'look me' will also describe yourself. Most common usage is to look other things. TIP: Try to look everything the first time you play as you may find important information or just some jokes. Examples of 'look [+ name]: 'look shortsword', 'look zombie', 'look north'...
 
+-'quit' or 'q' -->Use this command to end your game! It will be closed instantly.
+
 -'north' or 'n' --> If your actual room has an exit northside, you will move to the room connected with that exit.
 
 -'south' or 's' --> If your actual room has an exit southside, you will move to the room connected with that exit.
