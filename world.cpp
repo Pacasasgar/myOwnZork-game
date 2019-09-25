@@ -44,7 +44,7 @@ World::World()
 	entities.push_back(exit5);
 
 	// Creatures ----
-	Creature* zombie = new Creature("Zombie", "It's a pestilent zombie.", graveyard);
+	Creature* zombie = new Creature("Zombie", "It's a pestilent zombie and a disease's paradise...", graveyard);
 	zombie->hit_points = 6;
 	zombie->min_damage = 1;
 	zombie->max_damage = 2;
@@ -53,17 +53,16 @@ World::World()
 	wolf->hit_points = 10;
 	wolf->min_damage = 2;
 	wolf->max_damage = 3;
-	wolf->min_protection = 1;
 	wolf->max_protection = 2;
 	Creature* skeleton = new Creature("Skeleton", "It's an old live skeleton!", manor);
 	skeleton->hit_points = 20;
 	skeleton->min_damage = 1;
 	skeleton->max_damage = 5;
 	Creature* necromancer = new Creature("Necromancer", "It's an evil human being.", vault);
-	necromancer->hit_points = 45;
-	necromancer->min_damage = 45;
-	necromancer->max_damage = 50;
-	necromancer->min_protection = 1;
+	necromancer->hit_points = 50;
+	necromancer->min_damage = 1;
+	necromancer->max_damage = 6;
+	necromancer->min_protection = 0;
 	necromancer->max_protection = 2;
 
 	entities.push_back(zombie);
@@ -74,17 +73,17 @@ World::World()
 	// Items -----
 	Item* shortSword = new Item("Shortsword", "An old short sword, it looks a little weak to defeat evil humans...", road, WEAPON);
 	shortSword->min_value = 1;
-	shortSword->max_value = 3;
+	shortSword->max_value = 4;
 	Item* broadSword = new Item("Broadsword", "A big broadsword! It looks heavy but painful...", manor, WEAPON);
 	broadSword->min_value = 4;
-	broadSword->max_value = 6;
+	broadSword->max_value = 8;
 	Item* shield = new Item("Shield", "A broken wooden shield. Soon it will be two halves of it...", skeleton, ARMOUR);
 	shield->min_value = 0;
 	shield->max_value = 2;
 	skeleton->AutoEquip();
 	Item* leatherArmour = new Item("Armour", "A leather armour. Your skill as a leatherworker pays off, you created this using just a wolf's leather...", wolf, ARMOUR);
 	leatherArmour->min_value = 1;
-	leatherArmour->max_value = 4;
+	leatherArmour->max_value = 6;
 	Item* locket = new Item("Locket", "This ornament seems bigger than other lockets. It looks like it could be opened...", crypt);
 	Item* note = new Item("Note", "It says:\n'Remember that the Manor's key is inside the locket. Regards, Vladimir'", zombie);
 	Item* key1 = new Item("Vault-Key", "Vault's key. This key seems to be existing for more than a thousand years...", skeleton);
@@ -102,8 +101,8 @@ World::World()
 	entities.push_back(key2);
 
 	// Player ----
-	player = new Player("Bounty Hunter", "You are an awesome adventurer!", road);
-	player->hit_points = 25;
+	player = new Player("Bounty Hunter", "Your targets are always enemies of the kingdom, which makes you their Hero!", road);
+	player->hit_points = 28;
 	entities.push_back(player);
 }
 

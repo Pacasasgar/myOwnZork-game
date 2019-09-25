@@ -334,6 +334,10 @@ int Creature::ReceiveAttack(int damage)
 	int prot = (armour) ? armour->GetValue() : Roll(min_protection, max_protection);
 	int received = damage - prot;
 
+	//ensure no negative value is being shown
+	if (received < 0)
+		received = 0;
+
 	hit_points -= received;
 
 	if(PlayerInRoom())
@@ -342,6 +346,12 @@ int Creature::ReceiveAttack(int damage)
 	if (IsAlive() == false) {
 		hit_points = 0;
 		Die();
+		if (Same(this->name, "Bounty Hunter")) {
+			cout << "\nYou are dead!\nYou can keep exploring but you cannot win.\nI recommend you to 'quit' and start again...\n\n";
+		}
+		if (Same(this->name, "Necromancer")) {
+			cout << "\nYou killed the Necromancer! You win! Congratulations!!!\n\n";
+		}
 	}
 
 	return received;
@@ -351,7 +361,7 @@ int Creature::ReceiveAttack(int damage)
 void Creature::Die()
 {
 	if(PlayerInRoom())
-		cout << name << " dies.\n";
+		cout << endl << name << " dies.\n";
 	cout << "\n>";
 }
 
